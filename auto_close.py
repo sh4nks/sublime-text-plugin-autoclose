@@ -18,5 +18,7 @@ class AutoCloseTagCommand(sublime_plugin.TextCommand):
         cursorPosition = self.view.sel()[0].begin()
         # close the tag
         self.view.run_command('close_tag')
-        self.view.sel().clear()
-        self.view.sel().add(cursorPosition)
+        # Put the cursor(s) back inside the tag.
+        newCursorPosition = self.view.sel()[0].begin()
+        for i in range(cursorPosition, newCursorPosition):
+            self.view.run_command('move', { 'by': 'characters', 'forward': False })
