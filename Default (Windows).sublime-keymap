@@ -11,7 +11,7 @@
         {
             "key": "selector",
             "operator": "equal",
-            "operand": "text.html meta.tag -string -punctuation.definition.tag.begin.html -meta.scope.between-tag-pair.html, text.xml meta.tag -string -punctuation.definition.tag.begin.xml -meta.scope.between-tag-pair.xml",
+            "operand": "text.html meta.tag -string -punctuation.definition.tag.begin.html -meta.scope.between-tag-pair.html, text.xml meta.tag -string -punctuation.definition.tag.begin.xml -meta.scope.between-tag-pair.xml, source.js meta.group.braces.round.js",
             "match_all": true
         },
         {
