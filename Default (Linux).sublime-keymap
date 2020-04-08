@@ -1,9 +1,23 @@
 [
-    // Auto close tags
-    {"keys": [">"], "command": "auto_close_tag", "args": {"prefix": ">"}, "context":
-        [
-            {"key": "selector", "operator": "equal", "operand": "text.html meta.tag -string -punctuation.definition.tag.begin.html -meta.scope.between-tag-pair.html, text.xml meta.tag -string -punctuation.definition.tag.begin.xml -meta.scope.between-tag-pair.xml", "match_all": true},
-            {"key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\<(?:img|br|hr|meta|link|base|input)\\>[^<]*)|/$"}
-        ]
+    // Auto close tags after '>' is typed
+    {
+        "keys": [">"],
+        "command": "auto_close_tag",
+        "args":
+        {
+            "prefix": ">"
+        },
+        "context": [
+        {
+            "key": "selector",
+            "operator": "equal",
+            "operand": "text.html meta.tag -string -punctuation.definition.tag.begin.html -meta.scope.between-tag-pair.html, text.xml meta.tag -string -punctuation.definition.tag.begin.xml -meta.scope.between-tag-pair.xml",
+            "match_all": true
+        },
+        {
+            "key": "preceding_text",
+            "operator": "not_regex_contains",
+            "operand": "(?:\\<(?:img|br|hr|meta|link|base|input)\\>[^<]*)|/$"
+        }]
     }
 ]
