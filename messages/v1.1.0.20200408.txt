@@ -1,0 +1,9 @@
+Auto Close 1.1.0 Changelog
+
+New Features:
+  - Add support for JS and JSX files.
+
+Auto Close uses now following versioning scheme:
+semver.datereleased
+
+Version 1.1.0 was released on 2020.04.08.
