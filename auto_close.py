@@ -16,8 +16,16 @@ class AutoCloseTagCommand(sublime_plugin.TextCommand):
     def run(self, edit, prefix=""):
         self.view.run_command('insert', {'characters': prefix})
         cursorPosition = self.view.sel()[0].begin()
-        # close the tag
-        self.view.run_command('close_tag')
+        
+        # get syntax
+        syntax = self.view.scope_name(self.view.sel()[0].a)
+        
+        bypass_scopes = [".js", "embedded"]
+        # bypass scopes
+        
+        if not any(x in syntax for x in bypass_scopes):
+            self.view.run_command('close_tag')
+
         # Put the cursor(s) back inside the tag.
         newCursorPosition = self.view.sel()[0].begin()
         for i in range(cursorPosition, newCursorPosition):
